@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datenschutz – Spielerei</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #c98c8c;
+            --accent-strong: #b97777;
+            --accent-soft: #f3e6e6;
+            --text-dark: #222;
+            --text-muted: #777;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+        }
+
+        .lead {
+            font-weight: 300;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-strong);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .navbar {
+            transition: 0.3s;
+        }
+
+        .navbar.scrolled {
+            background: #fff !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+        }
+
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        /* HERO mit Altrosa Verlauf */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(
+                135deg,
+                var(--accent-strong) 0%,
+                var(--accent) 50%,
+                #e7bcbc 100%
+            );
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-strong);
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+        }
+
+        #news {
+            background: var(--accent-soft);
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+        }
+
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        footer {
+            padding: 30px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Spielerei</a>
+        </div>
+    </nav>
+
+    <section class="py-5 mt-5">
+        <div class="container">
+
+            <h1>Datenschutzerklärung</h1>
+
+            <h4>Allgemeines</h4>
+            <p>
+                Diese Website dient ausschließlich der Bereitstellung von Informationen über unser Ladengeschäft.
+                Es erfolgt keine Speicherung personenbezogener Daten durch uns.
+            </p>
+
+            <h4>Server-Logfiles</h4>
+            <p>
+                Beim Besuch der Website werden durch den Hosting-Provider automatisch
+                technische Zugriffsdaten (z. B. IP-Adresse, Datum, Uhrzeit) verarbeitet.
+                Diese Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs
+                gemäß Art. 6 Abs. 1 lit. f DSGVO.
+            </p>
+
+            <h4>Keine Cookies / Kein Tracking</h4>
+            <p>
+                Diese Website verwendet keine Cookies,
+                keine Analyse-Tools und keine Tracking-Dienste.
+                Es findet keine Auswertung des Nutzerverhaltens statt.
+            </p>
+
+            <h4>Kontaktaufnahme</h4>
+            <p>
+                Wenn Sie uns telefonisch oder per E-Mail kontaktieren,
+                werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage verwendet
+                und nicht an Dritte weitergegeben.
+            </p>
+
+            <h4>Ihre Rechte</h4>
+            <p>
+                Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten
+                sowie ein Beschwerderecht bei der zuständigen Datenschutzbehörde.
+            </p>
+
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            © 2026 Spielerei ·
+            <a href="index.html">Startseite</a> ·
+            <a href="impressum.html">Impressum</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
