@@ -1,182 +1,167 @@
 <!doctype html>
 <html lang="de">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Datenschutz – Spielerei</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <style>
-        :root {
-            --accent: #c98c8c;
-            --accent-strong: #b97777;
-            --accent-soft: #f3e6e6;
-            --text-dark: #222;
-            --text-muted: #777;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datenschutz – Spielerei</title>
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
-            color: var(--text-dark);
-        }
+  <!-- Design-Assets (optional wie bisher) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 
-        h1, h2, h3, h4, h5 {
-            font-weight: 700;
-        }
-
-        .lead {
-            font-weight: 300;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--accent-strong);
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        .navbar {
-            transition: 0.3s;
-        }
-
-        .navbar.scrolled {
-            background: #fff !important;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-link {
-            color: var(--text-dark) !important;
-        }
-
-        .nav-link:hover {
-            color: var(--accent) !important;
-        }
-
-        /* HERO mit Altrosa Verlauf */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-            background: linear-gradient(
-                135deg,
-                var(--accent-strong) 0%,
-                var(--accent) 50%,
-                #e7bcbc 100%
-            );
-        }
-
-        .btn-accent {
-            background: var(--accent);
-            border: none;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
-            transition: 0.3s;
-        }
-
-        .btn-accent:hover {
-            background: var(--accent-strong);
-        }
-
-        .section-title {
-            margin-bottom: 40px;
-        }
-
-        #news {
-            background: var(--accent-soft);
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 1rem;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-        }
-
-        .team-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        footer {
-            padding: 30px 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border-top: 1px solid #f1f1f1;
-        }
-    </style>
+  <style>
+    :root {
+      --accent: #c98c8c;
+      --accent-strong: #b97777;
+      --text-dark: #222;
+      --text-muted: #777;
+    }
+    body { font-family: system-ui, -apple-system, "Roboto", Arial, sans-serif; color: var(--text-dark); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-strong); text-decoration: underline; }
+    h1,h2,h3,h4 { font-weight: 700; }
+    .lead { color: var(--text-muted); }
+    main { padding: 80px 0 60px; }
+    footer { padding: 30px 0; font-size: .9rem; color: var(--text-muted); border-top: 1px solid #f1f1f1; }
+    .section + .section { margin-top: 2.25rem; }
+    .small-muted { color: var(--text-muted); font-size: .9rem; }
+  </style>
 </head>
-
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Spielerei</a>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Spielerei</a>
+    </div>
+  </nav>
 
-    <section class="py-5 mt-5">
-        <div class="container">
+  <main>
+    <div class="container" style="max-width: 820px;">
+      <header class="mb-4">
+        <h1>Datenschutzerklärung</h1>
+        <p class="lead mb-0">Stand: <!-- bitte Datum einsetzen --> 01.03.2026</p>
+      </header>
 
-            <h1>Datenschutzerklärung</h1>
+      <!-- Verantwortlicher -->
+      <section class="section">
+        <h4>1. Verantwortliche Stelle</h4>
+        <p>
+          Spielerei<br>
+          Härtelstraße 27, 04107 Leipzig<br>
+          E‑Mail: <a href="mailto:post@spielerei-leipzig.de">post@spielerei-leipzig.de</a><br>
+          Telefon: +49 176 21568623
+        </p>
+      </section>
 
-            <h4>Allgemeines</h4>
-            <p>
-                Diese Website dient ausschließlich der Bereitstellung von Informationen über unser Ladengeschäft.
-                Es erfolgt keine Speicherung personenbezogener Daten durch uns.
-            </p>
+      <!-- Hosting / Logfiles -->
+      <section class="section">
+        <h4>2. Hosting & Server‑Logfiles</h4>
+        <p>
+          Unsere Website wird bei einem in der EU ansässigen Hosting‑Anbieter betrieben. Beim Aufruf der Seiten
+          verarbeitet der Provider automatisch sogenannte Server‑Logfiles (z. B. IP‑Adresse in gekürzter/abgekürzter Form,
+          Datum/Uhrzeit der Anfrage, Referrer‑URL, verwendeter Browser/Device, übertragene Datenmenge, HTTP‑Status).
+          Die Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs, zur IT‑Sicherheit und zur Optimierung
+          unseres Angebots. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse).
+        </p>
+      </section>
 
-            <h4>Server-Logfiles</h4>
-            <p>
-                Beim Besuch der Website werden durch den Hosting-Provider automatisch
-                technische Zugriffsdaten (z. B. IP-Adresse, Datum, Uhrzeit) verarbeitet.
-                Diese Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs
-                gemäß Art. 6 Abs. 1 lit. f DSGVO.
-            </p>
+      <!-- Cookies / eigenes Tracking -->
+      <section class="section">
+        <h4>3. Cookies & eigenes Tracking</h4>
+        <p>
+          Diese Website setzt <strong>keine</strong> Cookies zu Analyse‑ oder Marketingzwecken ein und verwendet
+          <strong>keine</strong> eigenen Tracking‑Dienste.
+        </p>
+        <p class="small-muted">
+          Hinweis: Durch die Einbindung externer Inhalte (siehe Abschnitt „Instagram‑Feed“) können dennoch
+          Anfragen an Drittserver erfolgen, die unabhängig von uns technische Daten (z. B. IP‑Adresse) verarbeiten.
+        </p>
+      </section>
 
-            <h4>Keine Cookies / Kein Tracking</h4>
-            <p>
-                Diese Website verwendet keine Cookies,
-                keine Analyse-Tools und keine Tracking-Dienste.
-                Es findet keine Auswertung des Nutzerverhaltens statt.
-            </p>
+      <!-- Kontakt -->
+      <section class="section">
+        <h4>4. Kontaktaufnahme</h4>
+        <p>
+          Wenn Sie uns per E‑Mail oder telefonisch kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten
+          (z. B. Name, E‑Mail‑Adresse, Telefonnummer, Inhalte der Anfrage) ausschließlich zur Bearbeitung Ihres
+          Anliegens. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (vorvertragliche/vertragliche
+          Kommunikation) bzw. <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der Bearbeitung
+          von Anfragen).
+        </p>
+      </section>
 
-            <h4>Kontaktaufnahme</h4>
-            <p>
-                Wenn Sie uns telefonisch oder per E-Mail kontaktieren,
-                werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage verwendet
-                und nicht an Dritte weitergegeben.
-            </p>
+      <!-- Eingebundene Inhalte: Instagram via SociableKIT -->
+      <section class="section">
+        <h4>5. Eingebundene Inhalte von Drittanbietern – Instagram‑Feed (SociableKIT)</h4>
+        <p>
+          Auf unserer Website ist ein Instagram‑Feed eingebunden. Dieser wird über den Dienst
+          <strong>SociableKIT</strong> (SociableKIT, Irland) bereitgestellt. Beim Aufruf einer Seite, die dieses
+          Widget enthält, werden die zur Darstellung benötigten Inhalte direkt von den Servern von SociableKIT und
+          ggf. von <strong>Instagram</strong> (Meta Platforms Ireland Ltd.) geladen. Dabei können technische
+          Informationen wie IP‑Adresse, Datum/Uhrzeit des Abrufs, Browser‑ und Geräteinformationen an die genannten
+          Anbieter übertragen werden. Die Einbindung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>
+          (berechtigtes Interesse an einer ansprechenden Darstellung unseres Online‑Angebots).
+        </p>
+        <p>
+          Weitere Informationen finden Sie in den Datenschutzhinweisen der Anbieter:
+          <br>• SociableKIT: <a href="https://www.sociablekit.com/privacy-policy/" target="_blank" rel="noopener">www.sociablekit.com/privacy-policy/</a>
+          <br>• Instagram/Meta: <a href="https://privacycenter.instagram.com/policy/" target="_blank" rel="noopener">privacycenter.instagram.com/policy/</a>
+        </p>
+        <p class="small-muted">
+          Hinweis: Sie können unsere Website auch ohne den Instagram‑Bereich nutzen. Je nach Browser‑/Tracking‑Schutz
+          können Sie das Nachladen externer Inhalte blockieren. Funktionen des Feeds stehen dann ggf. nicht zur Verfügung.
+        </p>
+      </section>
 
-            <h4>Ihre Rechte</h4>
-            <p>
-                Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten
-                sowie ein Beschwerderecht bei der zuständigen Datenschutzbehörde.
-            </p>
+      <!-- Rechte -->
+      <section class="section">
+        <h4>6. Ihre Rechte</h4>
+        <p>
+          Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO),
+          Einschränkung der Verarbeitung (Art. 18 DSGVO) sowie Datenübertragbarkeit (Art. 20 DSGVO). Außerdem haben
+          Sie das Recht, einer Verarbeitung aufgrund von Art. 6 Abs. 1 lit. f DSGVO zu widersprechen (Art. 21 DSGVO).
+          Darüber hinaus besteht ein Beschwerderecht bei einer Datenschutz‑Aufsichtsbehörde (Art. 77 DSGVO).
+        </p>
+      </section>
 
-        </div>
-    </section>
+      <!-- Speicherdauer -->
+      <section class="section">
+        <h4>7. Speicherdauer</h4>
+        <p>
+          Sofern in dieser Erklärung nicht anders angegeben, speichern wir personenbezogene Daten nur so lange,
+          wie es für die jeweiligen Zwecke erforderlich ist bzw. gesetzliche Aufbewahrungspflichten bestehen.
+        </p>
+      </section>
 
-    <footer class="text-center">
-        <div class="container">
-            © 2026 Spielerei ·
-            <a href="index.html">Startseite</a> ·
-            <a href="impressum.html">Impressum</a>
-        </div>
-    </footer>
+      <!-- Datensicherheit -->
+      <section class="section">
+        <h4>8. Datensicherheit</h4>
+        <p>
+          Wir treffen technische und organisatorische Maßnahmen, um Ihre Daten gegen Verlust, Manipulation oder
+          unbefugten Zugriff zu schützen und passen diese Maßnahmen fortlaufend an den Stand der Technik an.
+        </p>
+      </section>
+
+      <!-- Änderungen -->
+      <section class="section">
+        <h4>9. Änderungen dieser Erklärung</h4>
+        <p>
+          Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, damit sie stets den aktuellen
+          rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Erklärung umzusetzen.
+          Die jeweils aktuelle Version ist auf dieser Seite abrufbar.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="text-center">
+    <div class="container">
+      © 2026 Spielerei ·
+      <a href="index.html">Startseite</a> ·
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </footer>
 
 </body>
-
 </html>
