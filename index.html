@@ -55,13 +55,16 @@
         }
 
         .navbar {
-            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.15) !important; /* 15% Weiß */
+            backdrop-filter: blur(10px); /* optional, schöner Glas-Effekt */
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .navbar.scrolled {
-            background: #fff !important;
+            background: rgba(255, 255, 255, 1) !important; /* volles Weiß */
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
         }
+
 
         .nav-link {
             color: var(--text-dark) !important;
