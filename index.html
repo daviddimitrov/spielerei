@@ -166,6 +166,15 @@
             display: none !important;
             color: transparent !important;
         }
+
+        .news-img {
+            aspect-ratio: 15 / 10;  /* Breite / Höhe */
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
     </style>
 </head>
 
@@ -229,7 +238,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="news-card">
-                        <img src="./assets/img/news.png" class="img-fluid rounded mb-4" alt="News">
+                        <img src="./assets/img/news.png" class="img-fluid rounded mb-4 news-img" alt="News">
                         <h4>Große Neueröffnung am 21.03.2026</h4>
                         <p class="text-muted">
                             Wir feiern die Neueröffnung unseres Ladens in der
