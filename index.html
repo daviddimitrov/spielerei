@@ -11,188 +11,415 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Roboto Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --accent: #c98c8c;
             --accent-strong: #b97777;
-            --accent-soft: #f3e6e6;
-            --text-dark: #222;
-            --text-muted: #777;
+            --accent-soft: #f9f0f0;
+            --cream: #fdf8f5;
+            --text-dark: #1a1a1a;
+            --text-muted: #888;
+            --border: #ece6e0;
         }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'DM Sans', sans-serif;
             color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            font-weight: 700;
-        }
+        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
 
-        .lead {
-            font-weight: 300;
-        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-strong); }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        section { padding: 110px 0; }
 
-        a:hover {
-            color: var(--accent-strong);
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
+        /* ── NAVBAR ── */
         .navbar {
-            background: rgba(255, 255, 255, 0.15) !important; /* 15% Weiß */
-            backdrop-filter: blur(10px); /* optional, schöner Glas-Effekt */
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            background: transparent !important;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+            padding: 18px 0;
         }
-
         .navbar.scrolled {
-            background: rgba(255, 255, 255, 1) !important; /* volles Weiß */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            background: rgba(253, 248, 245, 0.96) !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            backdrop-filter: blur(12px);
         }
-
-
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            letter-spacing: 0.02em;
+            color: white !important;
+            transition: color 0.4s;
+        }
+        .navbar.scrolled .navbar-brand { color: var(--text-dark) !important; }
         .nav-link {
-            color: var(--text-dark) !important;
+            color: rgba(255,255,255,0.9) !important;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 14px !important;
+            transition: color 0.3s;
         }
+        .navbar.scrolled .nav-link { color: var(--text-dark) !important; }
+        .nav-link:hover { color: var(--accent) !important; }
+        .navbar-toggler { border: none; }
+        .navbar-toggler:focus { box-shadow: none; }
 
-        .nav-link:hover {
-            color: var(--accent) !important;
-        }
-
-
-        /* HERO – Standard (Desktop/Laptop/Tablet quer) */
+        /* ── HERO ── */
         #hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Text mittig */
             text-align: center;
             position: relative;
-
-            /* Desktop/Laptop Bild als Default */
             background: url("assets/img/hero-desktop.png") center / cover no-repeat;
             color: white;
+            overflow: hidden;
         }
-
-        /* Optionales Overlay - wenn du es wirklich brauchst.
-   Für helle Bilder meist weglassen, sonst wird’s grau. */
         #hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.25);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.45) 100%);
+        }
+        #hero .container { position: relative; z-index: 2; }
+
+        #hero h1 {
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: -0.01em;
+            line-height: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s 0.2s cubic-bezier(.22,.61,.36,1) forwards;
+        }
+        .hero-sub {
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            line-height: 1.8;
+            margin: 20px 0 36px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s 0.5s cubic-bezier(.22,.61,.36,1) forwards;
+        }
+        .btn-hero {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 1s 0.8s cubic-bezier(.22,.61,.36,1) forwards;
         }
 
-        #hero .container {
-            position: relative;
+        /* scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 2;
-            padding: 0 1rem;
+            opacity: 0;
+            animation: fadeUp 1s 1.2s forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .scroll-indicator span {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+        .scroll-line {
+            width: 1px;
+            height: 44px;
+            background: rgba(255,255,255,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            animation: scrollDrop 1.8s 1.5s infinite ease-in-out;
         }
 
-        /* =========================================
-   Smartphones: anderes Bild per Media Query
-   ========================================= */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scrollDrop {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
         @media (max-width: 767.98px) {
-            #hero {
-                background-image: url("assets/img/hero-mobile.png");
-                background-position: center;
-                /* background-size: cover bleibt durch den Shorthand von oben aktiv */
-            }
+            #hero { background-image: url("assets/img/hero-mobile.png"); }
         }
 
+        /* ── BTN ACCENT ── */
         .btn-accent {
-            background: var(--accent);
-            border: none;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
-            transition: 0.3s;
+            display: inline-block;
+            background: transparent;
+            border: 1.5px solid rgba(255,255,255,0.75);
+            color: white !important;
+            padding: 13px 36px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
         }
-
         .btn-accent:hover {
-            background: var(--accent-strong);
-        }
-
-        .section-title {
-            margin-bottom: 40px;
-        }
-
-        #news {
-            background: var(--accent-soft);
-        }
-
-        .news-card {
             background: white;
-            border-radius: 1rem;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            border-color: white;
+            color: var(--text-dark) !important;
         }
 
-        .team-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+        /* ── SECTION TITLES ── */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+        .title-line {
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto 44px;
         }
 
-        footer {
-            padding: 30px 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border-top: 1px solid #f1f1f1;
+        /* ── ABOUT ── */
+        #about { background: var(--cream); }
+        #about p {
+            font-size: 1.02rem;
+            line-height: 1.9;
+            font-weight: 300;
+            color: #555;
+            max-width: 620px;
+            margin: 0 auto;
         }
 
-        .sk-ig-bottom-btn-container {
-            display: none !important;
+        /* ── NEWS ── */
+        #news { background: white; }
+        .news-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            transition: transform 0.4s cubic-bezier(.22,.61,.36,1), box-shadow 0.4s;
         }
-
-        .sk_branding, .tutorial_link {
-            display: none !important;
-            color: transparent !important;
+        .news-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 32px 80px rgba(0,0,0,0.1);
         }
-
+        .news-card-body { padding: 36px; }
         .news-img {
-            aspect-ratio: 15 / 10;  /* Breite / Höhe */
+            aspect-ratio: 15 / 10;
             width: 100%;
             height: auto;
             object-fit: cover;
             object-position: center;
             display: block;
         }
+        .news-tag {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        /* ── TEAM ── */
+        #team { background: var(--cream); }
+        .team-card { text-align: center; }
+        .team-img-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 22px;
+        }
+        .team-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(.22,.61,.36,1);
+        }
+        .team-img-wrap::before {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            top: 8px;
+            left: 8px;
+            transition: top 0.4s, left 0.4s;
+        }
+        .team-card:hover .team-img { transform: translate(-4px, -4px); }
+        .team-card:hover .team-img-wrap::before { top: 12px; left: 12px; }
+        .team-name { font-size: 1.3rem; margin-bottom: 4px; }
+        .team-role {
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        /* ── INSPIRATION ── */
+        #inspiration { background: white; }
+
+        /* ── CONTACT ── */
+        #contact {
+            background: var(--text-dark);
+            color: white;
+            padding: 100px 0;
+        }
+        #contact .section-title { color: white; }
+        #contact .title-line { background: var(--accent); }
+        #contact a { color: rgba(255,255,255,0.6); transition: color 0.3s; }
+        #contact a:hover { color: var(--accent); }
+        #contact p { color: rgba(255,255,255,0.6); font-size: 0.98rem; line-height: 2; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 580px;
+            margin: 0 auto 60px;
+            text-align: left;
+        }
+        @media (max-width: 576px) { .contact-grid { grid-template-columns: 1fr; } }
+        .contact-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        /* Hours block */
+        .hours-block {
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 40px 48px;
+            max-width: 520px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.04);
+        }
+        .hours-block .contact-label { text-align: center; margin-bottom: 28px; }
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            gap: 24px;
+        }
+        .hours-row:last-child { border-bottom: none; }
+        .hours-day {
+            font-size: 0.82rem;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .hours-time {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: white;
+            white-space: nowrap;
+        }
+        .hours-time.closed {
+            font-family: 'DM Sans', sans-serif;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 24px 0;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            background: var(--cream);
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(44px);
+            transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-44px);
+            transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(44px);
+            transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+        }
+        .reveal.visible, .reveal-left.visible, .reveal-right.visible {
+            opacity: 1;
+            transform: translate(0);
+        }
+        .delay-1 { transition-delay: 0.12s !important; }
+        .delay-2 { transition-delay: 0.24s !important; }
+        .delay-3 { transition-delay: 0.36s !important; }
+        .delay-4 { transition-delay: 0.5s !important; }
+
+        /* hide sociablekit branding */
+        .sk-ig-bottom-btn-container { display: none !important; }
+        .sk_branding, .tutorial_link { display: none !important; color: transparent !important; }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-black" href="index.html">Spielerei</a>
+            <a class="navbar-brand" href="index.html">Spielerei</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="#about">Über uns</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#news">News</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#inspiration">Inspiration</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#contact">Kontakt</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Über uns</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#inspiration">Inspiration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
                 </ul>
             </div>
         </div>
@@ -201,32 +428,29 @@
     <!-- HERO -->
     <section id="hero">
         <div class="container">
-            <h1 class="display-4 fw-bold">Spielerei</h1>
-            <p class="lead mt-3 mb-4">
-                <b>Große Neueröffnung am 21.03.2026</b><br>
-                Härtelstraße 27, 04107 Leipzig<br>
-                <!--Nachhaltiges Spielzeug – sorgfältig ausgesucht.<br>
-                Ein Raum der Ruhe, der Inspiration und des Spiels.-->
+            <h1>Spielerei</h1>
+            <p class="hero-sub">
+                <strong style="font-weight:500;">Große Neueröffnung am 21.03.2026</strong><br>
+                Härtelstraße 27, 04107 Leipzig
             </p>
-            <a href="#about" class="btn-accent" style="color:inherit;" onmouseover="this.style.setProperty('color','white','important')" onmouseout="this.style.setProperty('color','inherit','important')">
-                Mehr erfahren
-            </a>
+            <a href="#about" class="btn-accent btn-hero">Mehr erfahren</a>
         </div>
     </section>
 
     <!-- ÜBER UNS -->
     <section id="about">
         <div class="container text-center">
-            <h2 class="section-title">Über uns</h2>
-            <p class="col-md-8 mx-auto">
-                Hallo, wir sind Katja und Hannah - Mutter und Tochter.<br>
+            <h2 class="section-title reveal">Über uns</h2>
+            <div class="title-line reveal delay-1"></div>
+            <p class="reveal delay-2">
+                Hallo, wir sind Katja und Hannah – Mutter und Tochter.<br><br>
                 Zusammen haben wir uns gerade auf eine neue Reise in unserem Leben begeben. Wir möchten für Kinder, aber auch für Erwachsene, ein Ort sein, an dem es Spielzeug gibt, das der Fantasie keine Grenzen setzt.<br><br>
-                Ich, Katja, habe den kleinen Spielzeugladen, die "Spielerei", im Januar 2026 übernommen.<br>
+                Ich, Katja, habe den kleinen Spielzeugladen, die „Spielerei", im Januar 2026 übernommen.
                 Als Mama von vier Kindern hatte ich schon immer große Freude an schönem Spielzeug, das aus guten Materialien besteht, langlebig und nachhaltig ist und unter fairen Bedingungen hergestellt wird.
                 Deshalb versuchen wir, Produkte zu finden, die größtenteils in Europa – in kleinen Manufakturen und traditionellen Werkstätten – hergestellt werden.<br><br>
-                Es geht darum, sich eine kleine Welt zu erschaffen, wo man spielen, träumen, bauen und glücklich sein kann. Also um all die kleinen und großen Abenteuer!<br><br>
+                Es geht darum, sich eine kleine Welt zu erschaffen, wo man spielen, träumen, bauen und glücklich sein kann.<br><br>
                 Wir freuen uns auf Euch.<br>
-                Eure Katja & Hannah
+                <em style="font-family:'Playfair Display',serif; font-size:1.1rem;">Eure Katja &amp; Hannah</em>
             </p>
         </div>
     </section>
@@ -234,18 +458,22 @@
     <!-- NEWS -->
     <section id="news">
         <div class="container text-center">
-            <h2 class="section-title">Neuigkeiten</h2>
+            <h2 class="section-title reveal">Neuigkeiten</h2>
+            <div class="title-line reveal delay-1"></div>
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-8 reveal delay-2">
                     <div class="news-card">
-                        <img src="./assets/img/news.png" class="img-fluid rounded mb-4 news-img" alt="News">
-                        <h4>Große Neueröffnung am 21.03.2026</h4>
-                        <p class="text-muted">
-                            Wir feiern die Neueröffnung unseres Ladens in der
-                            <strong>Härtelstraße 27, 04107 Leipzig</strong>.
-                            Kommt vorbei, entdeckt unser ausgesuchtes Sortiment
-                            und erlebt die Spielerei als Ort der Begegnung.
-                        </p>
+                        <img src="./assets/img/news.png" class="news-img" alt="News">
+                        <div class="news-card-body text-start">
+                            <span class="news-tag">Eröffnung</span>
+                            <h4 style="margin-bottom:12px;">Große Neueröffnung am 21.03.2026</h4>
+                            <p class="text-muted" style="line-height:1.8; font-weight:300;">
+                                Wir feiern die Neueröffnung unseres Ladens in der
+                                <strong>Härtelstraße 27, 04107 Leipzig</strong>.
+                                Kommt vorbei, entdeckt unser ausgesuchtes Sortiment
+                                und erlebt die Spielerei als Ort der Begegnung.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -255,27 +483,39 @@
     <!-- TEAM -->
     <section id="team">
         <div class="container text-center">
-            <h2 class="section-title">Unser Team</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <img src="assets/img/katja.png" class="team-img shadow-sm mb-3" alt="Katja">
-                    <h5>Katja</h5>
-                    <p class="text-muted">Gründerin</p>
+            <h2 class="section-title reveal">Unser Team</h2>
+            <div class="title-line reveal delay-1"></div>
+            <div class="row g-5 justify-content-center mt-2">
+                <div class="col-md-4 reveal-left delay-2">
+                    <div class="team-card">
+                        <div class="team-img-wrap">
+                            <img src="assets/img/katja.png" class="team-img" alt="Katja">
+                        </div>
+                        <h5 class="team-name">Katja</h5>
+                        <p class="team-role">Gründerin</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <img src="assets/img/hannah.png" class="team-img shadow-sm mb-3" alt="Hannah">
-                    <h5>Hannah</h5>
-                    <p class="text-muted">Beratung & Design</p>
+                <div class="col-md-4 reveal-right delay-3">
+                    <div class="team-card">
+                        <div class="team-img-wrap">
+                            <img src="assets/img/hannah.png" class="team-img" alt="Hannah">
+                        </div>
+                        <h5 class="team-name">Hannah</h5>
+                        <p class="team-role">Beratung &amp; Design</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- INSPIRATION -->
     <section id="inspiration">
         <div class="container text-center">
-            <h2 class="section-title">Inspiration</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="sk-instagram-feed" data-embed-id="25658738"></div><script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
+            <h2 class="section-title reveal">Inspiration</h2>
+            <div class="title-line reveal delay-1"></div>
+            <div class="row g-4 justify-content-center reveal delay-2">
+                <div class="sk-instagram-feed" data-embed-id="25658738"></div>
+                <script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
             </div>
         </div>
     </section>
@@ -283,29 +523,39 @@
     <!-- KONTAKT -->
     <section id="contact">
         <div class="container text-center">
-            <h2 class="section-title">Kontakt & Öffnungszeiten</h2>
+            <h2 class="section-title reveal">Kontakt &amp; Öffnungszeiten</h2>
+            <div class="title-line reveal delay-1"></div>
 
-            <p>
-                Härtelstraße 27 · 04107 Leipzig
-            </p>
+            <div class="contact-grid reveal delay-2">
+                <div>
+                    <p class="contact-label">Adresse</p>
+                    <p>Härtelstraße 27<br>04107 Leipzig</p>
+                </div>
+                <div>
+                    <p class="contact-label">Erreichbarkeit</p>
+                    <p>
+                        <i class="bi bi-telephone me-2"></i><a href="tel:+4917621568623">+49 176 21568623</a><br>
+                        <i class="bi bi-at me-2"></i><a href="mailto:post@spielerei-leipzig.de">post@spielerei-leipzig.de</a><br>
+                        <i class="bi bi-instagram me-2"></i><a href="https://instagram.com/spielereileipzig" target="_blank">spielereileipzig</a>
+                    </p>
+                </div>
+            </div>
 
-            <p>
-                <i class="bi bi-telephone"></i>
-                <a href="tel:+4917621568623">+49 176 21568623</a><br>
-                <i class="bi bi-at"></i>
-                <a href="mailto:post@spielerei-leipzig.de">post@spielerei-leipzig.de</a><br>
-                <i class="bi bi-instagram"></i>
-                <a href="https://instagram.com/spielereileipzig" target="_blank">
-                    spielereileipzig
-                </a>
-            </p>
-
-            <p class="mt-4">
-                <strong>Öffnungszeiten</strong><br>
-                Mo – Fr: 10:00 – 18:00<br>
-                Sa: 10:00 – 16:00<br>
-                So: geschlossen
-            </p>
+            <div class="hours-block reveal delay-3">
+                <p class="contact-label">Öffnungszeiten</p>
+                <div class="hours-row">
+                    <span class="hours-day">Mo – Fr</span>
+                    <span class="hours-time">10:00 – 18:00</span>
+                </div>
+                <div class="hours-row">
+                    <span class="hours-day">Samstag</span>
+                    <span class="hours-time">10:00 – 16:00</span>
+                </div>
+                <div class="hours-row">
+                    <span class="hours-day">Sonntag</span>
+                    <span class="hours-time closed">Geschlossen</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -322,13 +572,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Navbar scroll effect
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.14 });
+
+        revealEls.forEach(el => observer.observe(el));
     </script>
 
 </body>
-
 </html>

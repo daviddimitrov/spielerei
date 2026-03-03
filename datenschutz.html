@@ -1,167 +1,120 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Datenschutz – Spielerei</title>
-
-  <!-- Design-Assets (optional wie bisher) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-
-  <style>
-    :root {
-      --accent: #c98c8c;
-      --accent-strong: #b97777;
-      --text-dark: #222;
-      --text-muted: #777;
-    }
-    body { font-family: system-ui, -apple-system, "Roboto", Arial, sans-serif; color: var(--text-dark); }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-strong); text-decoration: underline; }
-    h1,h2,h3,h4 { font-weight: 700; }
-    .lead { color: var(--text-muted); }
-    main { padding: 80px 0 60px; }
-    footer { padding: 30px 0; font-size: .9rem; color: var(--text-muted); border-top: 1px solid #f1f1f1; }
-    .section + .section { margin-top: 2.25rem; }
-    .small-muted { color: var(--text-muted); font-size: .9rem; }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datenschutz – Spielerei</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent:#c98c8c; --accent-strong:#b97777; --cream:#fdf8f5; --text-dark:#1a1a1a; --text-muted:#888; --border:#ece6e0; }
+        *,*::before,*::after{box-sizing:border-box}
+        body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--cream)}
+        h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+        a{color:var(--accent);text-decoration:none} a:hover{color:var(--accent-strong)}
+        .navbar{background:rgba(253,248,245,.96)!important;box-shadow:0 4px 24px rgba(0,0,0,.06);backdrop-filter:blur(12px);padding:18px 0}
+        .navbar-brand{font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;color:var(--text-dark)!important}
+        .nav-back{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)!important;transition:color .3s}
+        .nav-back:hover{color:var(--accent)!important}
+        .page-header{padding:120px 0 60px;border-bottom:1px solid var(--border);margin-bottom:64px}
+        .page-header h1{font-size:clamp(2.5rem,5vw,3.5rem);font-weight:400;font-style:italic;margin-bottom:8px}
+        .page-header .date{font-size:.82rem;letter-spacing:.08em;color:var(--text-muted);text-transform:uppercase}
+        main{padding-bottom:100px}
+        .ds-section{margin-bottom:52px;padding-bottom:52px;border-bottom:1px solid var(--border)}
+        .ds-section:last-child{border-bottom:none;margin-bottom:0}
+        .ds-section h4{font-size:1.2rem;font-weight:400;font-style:italic;margin-bottom:16px;color:var(--text-dark)}
+        .ds-section p{font-size:.97rem;font-weight:300;line-height:1.9;color:#555;margin-bottom:.75rem}
+        .ds-section p:last-child{margin-bottom:0}
+        .ds-section .note{font-size:.85rem;color:var(--text-muted);background:rgba(201,140,140,.07);border-left:2px solid var(--accent);padding:12px 16px;border-radius:0 6px 6px 0}
+        footer{padding:24px 0;font-size:.82rem;color:var(--text-muted);border-top:1px solid var(--border);background:var(--cream)}
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .d1{transition-delay:.05s!important}.d2{transition-delay:.1s!important}.d3{transition-delay:.15s!important}
+        .d4{transition-delay:.2s!important}.d5{transition-delay:.25s!important}.d6{transition-delay:.3s!important}
+        .d7{transition-delay:.35s!important}.d8{transition-delay:.4s!important}.d9{transition-delay:.45s!important}
+    </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="index.html">Spielerei</a>
+            <a class="nav-back" href="index.html"><i class="bi bi-arrow-left me-1"></i> Zurück</a>
+        </div>
+    </nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Spielerei</a>
-    </div>
-  </nav>
+    <main>
+        <div class="container" style="max-width:720px">
 
-  <main>
-    <div class="container" style="max-width: 820px;">
-      <header class="mb-4">
-        <h1>Datenschutzerklärung</h1>
-        <p class="lead mb-0">Stand: <!-- bitte Datum einsetzen --> 01.03.2026</p>
-      </header>
+            <div class="page-header reveal">
+                <h1>Datenschutzerklärung</h1>
+                <p class="date">Stand: 01.03.2026</p>
+            </div>
 
-      <!-- Verantwortlicher -->
-      <section class="section">
-        <h4>1. Verantwortliche Stelle</h4>
-        <p>
-          Spielerei<br>
-          Härtelstraße 27, 04107 Leipzig<br>
-          E‑Mail: <a href="mailto:post@spielerei-leipzig.de">post@spielerei-leipzig.de</a><br>
-          Telefon: +49 176 21568623
-        </p>
-      </section>
+            <div class="ds-section reveal d1">
+                <h4>1. Verantwortliche Stelle</h4>
+                <p>Spielerei<br>Härtelstraße 27, 04107 Leipzig<br>
+                E&#8209;Mail: <a href="mailto:post@spielerei-leipzig.de">post@spielerei-leipzig.de</a><br>
+                Telefon: +49 176 21568623</p>
+            </div>
 
-      <!-- Hosting / Logfiles -->
-      <section class="section">
-        <h4>2. Hosting & Server‑Logfiles</h4>
-        <p>
-          Unsere Website wird bei einem in der EU ansässigen Hosting‑Anbieter betrieben. Beim Aufruf der Seiten
-          verarbeitet der Provider automatisch sogenannte Server‑Logfiles (z. B. IP‑Adresse in gekürzter/abgekürzter Form,
-          Datum/Uhrzeit der Anfrage, Referrer‑URL, verwendeter Browser/Device, übertragene Datenmenge, HTTP‑Status).
-          Die Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs, zur IT‑Sicherheit und zur Optimierung
-          unseres Angebots. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse).
-        </p>
-      </section>
+            <div class="ds-section reveal d2">
+                <h4>2. Hosting &amp; Server&#8209;Logfiles</h4>
+                <p>Unsere Website wird bei einem in der EU ansässigen Hosting&#8209;Anbieter betrieben. Beim Aufruf der Seiten verarbeitet der Provider automatisch sogenannte Server&#8209;Logfiles (z. B. IP&#8209;Adresse in gekürzter Form, Datum/Uhrzeit der Anfrage, Referrer&#8209;URL, verwendeter Browser/Device, übertragene Datenmenge, HTTP&#8209;Status). Die Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs, zur IT&#8209;Sicherheit und zur Optimierung unseres Angebots. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse).</p>
+            </div>
 
-      <!-- Cookies / eigenes Tracking -->
-      <section class="section">
-        <h4>3. Cookies & eigenes Tracking</h4>
-        <p>
-          Diese Website setzt <strong>keine</strong> Cookies zu Analyse‑ oder Marketingzwecken ein und verwendet
-          <strong>keine</strong> eigenen Tracking‑Dienste.
-        </p>
-        <p class="small-muted">
-          Hinweis: Durch die Einbindung externer Inhalte (siehe Abschnitt „Instagram‑Feed“) können dennoch
-          Anfragen an Drittserver erfolgen, die unabhängig von uns technische Daten (z. B. IP‑Adresse) verarbeiten.
-        </p>
-      </section>
+            <div class="ds-section reveal d3">
+                <h4>3. Cookies &amp; eigenes Tracking</h4>
+                <p>Diese Website setzt <strong>keine</strong> Cookies zu Analyse&#8209; oder Marketingzwecken ein und verwendet <strong>keine</strong> eigenen Tracking&#8209;Dienste.</p>
+                <p class="note">Hinweis: Durch die Einbindung externer Inhalte (siehe Abschnitt „Instagram&#8209;Feed") können dennoch Anfragen an Drittserver erfolgen, die unabhängig von uns technische Daten (z. B. IP&#8209;Adresse) verarbeiten.</p>
+            </div>
 
-      <!-- Kontakt -->
-      <section class="section">
-        <h4>4. Kontaktaufnahme</h4>
-        <p>
-          Wenn Sie uns per E‑Mail oder telefonisch kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten
-          (z. B. Name, E‑Mail‑Adresse, Telefonnummer, Inhalte der Anfrage) ausschließlich zur Bearbeitung Ihres
-          Anliegens. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (vorvertragliche/vertragliche
-          Kommunikation) bzw. <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der Bearbeitung
-          von Anfragen).
-        </p>
-      </section>
+            <div class="ds-section reveal d4">
+                <h4>4. Kontaktaufnahme</h4>
+                <p>Wenn Sie uns per E&#8209;Mail oder telefonisch kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten (z. B. Name, E&#8209;Mail&#8209;Adresse, Telefonnummer, Inhalte der Anfrage) ausschließlich zur Bearbeitung Ihres Anliegens. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (vorvertragliche/vertragliche Kommunikation) bzw. <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der Bearbeitung von Anfragen).</p>
+            </div>
 
-      <!-- Eingebundene Inhalte: Instagram via SociableKIT -->
-      <section class="section">
-        <h4>5. Eingebundene Inhalte von Drittanbietern – Instagram‑Feed (SociableKIT)</h4>
-        <p>
-          Auf unserer Website ist ein Instagram‑Feed eingebunden. Dieser wird über den Dienst
-          <strong>SociableKIT</strong> (SociableKIT, Irland) bereitgestellt. Beim Aufruf einer Seite, die dieses
-          Widget enthält, werden die zur Darstellung benötigten Inhalte direkt von den Servern von SociableKIT und
-          ggf. von <strong>Instagram</strong> (Meta Platforms Ireland Ltd.) geladen. Dabei können technische
-          Informationen wie IP‑Adresse, Datum/Uhrzeit des Abrufs, Browser‑ und Geräteinformationen an die genannten
-          Anbieter übertragen werden. Die Einbindung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>
-          (berechtigtes Interesse an einer ansprechenden Darstellung unseres Online‑Angebots).
-        </p>
-        <p>
-          Weitere Informationen finden Sie in den Datenschutzhinweisen der Anbieter:
-          <br>• SociableKIT: <a href="https://www.sociablekit.com/privacy-policy/" target="_blank" rel="noopener">www.sociablekit.com/privacy-policy/</a>
-          <br>• Instagram/Meta: <a href="https://privacycenter.instagram.com/policy/" target="_blank" rel="noopener">privacycenter.instagram.com/policy/</a>
-        </p>
-        <p class="small-muted">
-          Hinweis: Sie können unsere Website auch ohne den Instagram‑Bereich nutzen. Je nach Browser‑/Tracking‑Schutz
-          können Sie das Nachladen externer Inhalte blockieren. Funktionen des Feeds stehen dann ggf. nicht zur Verfügung.
-        </p>
-      </section>
+            <div class="ds-section reveal d5">
+                <h4>5. Eingebundene Inhalte von Drittanbietern – Instagram&#8209;Feed (SociableKIT)</h4>
+                <p>Auf unserer Website ist ein Instagram&#8209;Feed eingebunden. Dieser wird über den Dienst <strong>SociableKIT</strong> (SociableKIT, Irland) bereitgestellt. Beim Aufruf einer Seite, die dieses Widget enthält, werden die zur Darstellung benötigten Inhalte direkt von den Servern von SociableKIT und ggf. von <strong>Instagram</strong> (Meta Platforms Ireland Ltd.) geladen. Dabei können technische Informationen wie IP&#8209;Adresse, Datum/Uhrzeit des Abrufs, Browser&#8209; und Geräteinformationen an die genannten Anbieter übertragen werden. Die Einbindung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an einer ansprechenden Darstellung unseres Online&#8209;Angebots).</p>
+                <p>Weitere Informationen finden Sie in den Datenschutzhinweisen der Anbieter:<br>
+                • SociableKIT: <a href="https://www.sociablekit.com/privacy-policy/" target="_blank" rel="noopener">www.sociablekit.com/privacy-policy/</a><br>
+                • Instagram/Meta: <a href="https://privacycenter.instagram.com/policy/" target="_blank" rel="noopener">privacycenter.instagram.com/policy/</a></p>
+                <p class="note">Hinweis: Sie können unsere Website auch ohne den Instagram&#8209;Bereich nutzen. Je nach Browser&#8209;/Tracking&#8209;Schutz können Sie das Nachladen externer Inhalte blockieren. Funktionen des Feeds stehen dann ggf. nicht zur Verfügung.</p>
+            </div>
 
-      <!-- Rechte -->
-      <section class="section">
-        <h4>6. Ihre Rechte</h4>
-        <p>
-          Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO),
-          Einschränkung der Verarbeitung (Art. 18 DSGVO) sowie Datenübertragbarkeit (Art. 20 DSGVO). Außerdem haben
-          Sie das Recht, einer Verarbeitung aufgrund von Art. 6 Abs. 1 lit. f DSGVO zu widersprechen (Art. 21 DSGVO).
-          Darüber hinaus besteht ein Beschwerderecht bei einer Datenschutz‑Aufsichtsbehörde (Art. 77 DSGVO).
-        </p>
-      </section>
+            <div class="ds-section reveal d6">
+                <h4>6. Ihre Rechte</h4>
+                <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) sowie Datenübertragbarkeit (Art. 20 DSGVO). Außerdem haben Sie das Recht, einer Verarbeitung aufgrund von Art. 6 Abs. 1 lit. f DSGVO zu widersprechen (Art. 21 DSGVO). Darüber hinaus besteht ein Beschwerderecht bei einer Datenschutz&#8209;Aufsichtsbehörde (Art. 77 DSGVO).</p>
+            </div>
 
-      <!-- Speicherdauer -->
-      <section class="section">
-        <h4>7. Speicherdauer</h4>
-        <p>
-          Sofern in dieser Erklärung nicht anders angegeben, speichern wir personenbezogene Daten nur so lange,
-          wie es für die jeweiligen Zwecke erforderlich ist bzw. gesetzliche Aufbewahrungspflichten bestehen.
-        </p>
-      </section>
+            <div class="ds-section reveal d7">
+                <h4>7. Speicherdauer</h4>
+                <p>Sofern in dieser Erklärung nicht anders angegeben, speichern wir personenbezogene Daten nur so lange, wie es für die jeweiligen Zwecke erforderlich ist bzw. gesetzliche Aufbewahrungspflichten bestehen.</p>
+            </div>
 
-      <!-- Datensicherheit -->
-      <section class="section">
-        <h4>8. Datensicherheit</h4>
-        <p>
-          Wir treffen technische und organisatorische Maßnahmen, um Ihre Daten gegen Verlust, Manipulation oder
-          unbefugten Zugriff zu schützen und passen diese Maßnahmen fortlaufend an den Stand der Technik an.
-        </p>
-      </section>
+            <div class="ds-section reveal d8">
+                <h4>8. Datensicherheit</h4>
+                <p>Wir treffen technische und organisatorische Maßnahmen, um Ihre Daten gegen Verlust, Manipulation oder unbefugten Zugriff zu schützen und passen diese Maßnahmen fortlaufend an den Stand der Technik an.</p>
+            </div>
 
-      <!-- Änderungen -->
-      <section class="section">
-        <h4>9. Änderungen dieser Erklärung</h4>
-        <p>
-          Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, damit sie stets den aktuellen
-          rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Erklärung umzusetzen.
-          Die jeweils aktuelle Version ist auf dieser Seite abrufbar.
-        </p>
-      </section>
+            <div class="ds-section reveal d9">
+                <h4>9. Änderungen dieser Erklärung</h4>
+                <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Erklärung umzusetzen. Die jeweils aktuelle Version ist auf dieser Seite abrufbar.</p>
+            </div>
 
-    </div>
-  </main>
+        </div>
+    </main>
 
-  <footer class="text-center">
-    <div class="container">
-      © 2026 Spielerei ·
-      <a href="index.html">Startseite</a> ·
-      <a href="impressum.html">Impressum</a>
-    </div>
-  </footer>
+    <footer class="text-center">
+        <div class="container">© 2026 Spielerei · <a href="index.html">Startseite</a> · <a href="impressum.html">Impressum</a></div>
+    </footer>
 
+    <script>
+        const els=document.querySelectorAll('.reveal');
+        const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}}),{threshold:.1});
+        els.forEach(el=>obs.observe(el));
+    </script>
 </body>
 </html>
